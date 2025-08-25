@@ -1223,7 +1223,7 @@ class Psycopg2RedshiftDialectMixin(RedshiftDialectMixin):
         return cargs, default_args
 
     @classmethod
-    def dbapi(cls):
+    def import_dbapi(cls):
         try:
             return importlib.import_module(cls.driver)
         except ImportError:
@@ -1306,7 +1306,7 @@ class RedshiftDialect_redshift_connector(RedshiftDialectMixin, PGDialect):
         self.client_encoding = client_encoding
 
     @classmethod
-    def dbapi(cls):
+    def import_dbapi(cls):
         try:
             driver_module = importlib.import_module(cls.driver)
 
